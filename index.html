@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>UI/UX Designer Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Smooth scroll aktif -->
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+  <style>
+    /* Custom Soft Pink Color */
+    .bg-soft-pink {
+      background-color: #F8BBD0; /* Soft Pink Color */
+    }
+    .text-soft-pink {
+      color: #F8BBD0; /* Soft Pink Color */
+    }
+
+    /* Bubble Style */
+    .bubble {
+      position: absolute;
+      bottom: -50px;
+      border-radius: 50%;
+      background: rgba(255, 182, 193, 0.6); /* Soft Pink bubble color */
+      opacity: 0.8;
+      pointer-events: none;
+      animation: rise 10s linear forwards;
+      z-index: 1; /* Ensure bubbles appear above background */
+    }
+
+    @keyframes rise {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0.7;
+      }
+      50% {
+        opacity: 0.4;
+      }
+      100% {
+        transform: translateY(-120vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    /* Typewriter cursor effect */
+    #typewriter::after {
+      content: '|';
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+  </style>
+</head>
+
+<body class="bg-soft-pink text-white font-sans">
+
+<!-- Navbar -->
+<nav class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-8 py-6 bg-soft-pink shadow-lg">
+  <div class="text-2xl font-bold text-gray-800">🌸Sellomitha🌸</div>
+  <ul class="flex space-x-6 text-sm uppercase tracking-wide text-gray-800">
+    <li><a href="#home" class="hover:text-pink-700">Home</a></li>
+    <li><a href="#about" class="hover:text-pink-700">About</a></li>
+    <li><a href="#portfolio" class="hover:text-pink-700">Portfolio</a></li>
+    <li>
+      <a href="#contact" class="border-2 border-pink-500 rounded px-3 py-1 hover:bg-pink-100 hover:text-pink-700 transition">
+        Contact
+      </a>
+    </li>
+    
+  </ul>
+</nav>
+
+<!-- Hero Section -->
+<section id="home" class="flex flex-col items-center justify-center h-screen bg-white relative text-center">
+  <!-- Bubble container -->
+  <div id="bubbles-container" class="absolute inset-0 z-0 overflow-hidden"></div>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-white bg-opacity-40"></div>
+
+  <!-- Text content -->
+  <div class="relative z-10 max-w-xl mx-auto">
+    <p class="text-soft-pink text-lg mb-2">HELLO I'M</p>
+    <h1 id="typewriter" class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">🌷</h1>
+    <p class="text-soft-pink mb-6">
+      welcome to my portfolio website project
+    </p>
+    <a href="#portfolio" class="inline-block px-6 py-3 border-2 border-pink-400 text-gray-800 rounded hover:bg-pink-400 hover:text-soft-pink transition">
+      See All Project
+    </a>
+  </div>
+</section>
+
+<script>
+// Bubble Animation
+const bubblesContainer = document.getElementById('bubbles-container');
+
+function createBubble() {
+  const bubble = document.createElement('span');
+  bubble.classList.add('bubble');
+
+  const size = Math.random() * 45 + 15;
+  bubble.style.width = `${size}px`;
+  bubble.style.height = `${size}px`;
+
+  bubble.style.left = `${Math.random() * 100}%`;
+
+  const duration = Math.random() * 8 + 8;
+  bubble.style.animationDuration = `${duration}s`;
+
+  bubblesContainer.appendChild(bubble);
+
+  bubble.addEventListener('animationend', () => {
+    bubble.remove();
+  });
+}
+
+setInterval(createBubble, 500);
+
+// Typewriter Effect
+const text = "Sellomitha Rahadi";
+const target = document.getElementById("typewriter");
+let index = 0;
+
+function typeWriter() {
+  if (index < text.length) {
+    target.innerHTML += text.charAt(index);
+    index++;
+    setTimeout(typeWriter, 120);
+  }
+}
+
+window.addEventListener('load', typeWriter);
+</script>
+
+<!-- About Me Section -->
+ <br id="about" >
+ <br>
+ <br>
+<section class="bg-soft-pink text-white py-16 px-8 relative overflow-hidden">
+    <!-- Sobekan Kertas (atas) -->
+    <div class="sobekan-top"></div>
+    <!-- Sobekan Kertas (bawah) -->
+    <div class="sobekan-bottom"></div>
+  
+    <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-10 relative z-10">
+        <!-- Foto/Ilustrasi -->
+        <div class="flex-shrink-0">
+          <img src="ppsllwosis.jpg" alt="Profile Picture" class="w-60 h-60 -ml-10 rounded-lg border-4 border-pink-200 object-cover transform transition duration-300 hover:scale-105 hover:shadow-xl">
+          </div>  
+  
+      <!-- Deskripsi -->
+      <div class="flex-1">
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">🌷About Me🌷</h2>
+        
+        <!-- Deskripsi Pengantar -->
+        <p class="text-gray-800 mb-4">
+          Hi, I'm Sellomitha i'm a vocational high school student majoring in RPL who actually doesn't understand the RPL major but tries to understand RPL. Here are some of my biodata :
+        </p>
+  
+        <!-- Biodata Diri -->
+        <div class="mb-6 space-y-2">
+          <p class="text-gray-800"><span class="font-semibold text-pink-700">Name:</span> Sellomitha Rahadi</p>
+          <p class="text-gray-800"><span class="font-semibold text-pink-700">Date of birth:</span> Semarang, 20 October 2008</p>
+          <p class="text-gray-800"><span class="font-semibold text-pink-700">Address:</span> Suruh, Salatiga</p>
+          <p class="text-gray-800"><span class="font-semibold text-pink-700">Scholl:</span> SMKN 1 Tengaran</p>
+          <p class="text-gray-800"><span class="font-semibold text-pink-700">Major:</span> RPL</p>
+          <p class="text-gray-800"><span class="font-semibold text-pink-700">Hobby:</span> Listening to music, Watching movie</p>
+        </div>
+  
+        <!-- Tombol -->
+        <a href="#contact" class="border-2 border-pink-600 text-gray-900 hover:bg-pink-400 hover:text-gray font-semibold py-2 px-4 rounded transition">
+          Contact
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+    .sobekan-top,
+    .sobekan-bottom {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 50px; /* Tinggi sobekan tipis */
+      background: white;
+      clip-path: polygon(
+        0% 100%, 
+        5% 80%, 
+        10% 100%, 
+        15% 80%, 
+        20% 100%, 
+        25% 80%, 
+        30% 100%, 
+        35% 80%, 
+        40% 100%, 
+        45% 80%, 
+        50% 100%, 
+        55% 80%, 
+        60% 100%, 
+        65% 80%, 
+        70% 100%, 
+        75% 80%, 
+        80% 100%, 
+        85% 80%, 
+        90% 100%, 
+        95% 80%, 
+        100% 100%
+      );
+      z-index: 1;
+    }
+  
+    .sobekan-top {
+      top: 0;
+    }
+  
+    .sobekan-bottom {
+      bottom: 0;
+      transform: rotate(180deg);
+    }
+  </style>
+  <br id="portfolio">
+  <br>
+
+<section class="text-center py-12 bg-soft-pink">
+  <h1 class="text-4xl font-bold text-black mb-10">🍓My Portfolio🍓</h1>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl w-full mx-auto px-4">
+  
+    <!-- Portfolio Card -->
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:bg-pink-100 relative">
+      <div class="absolute top-0 left-0 right-0 -z-10 h-20 bg-gradient-to-b from-pink-200 rounded-t-2xl"></div>
+      <img src="web sejarah.png" alt="Project Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <a href="https://sello2010.github.io/web-sejarah/"><h2 class="text-xl font-semibold text-gray-700">Web Sejarah</h2></a>
+      </div>
+    </div>
+    
+  
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:bg-pink-100 relative">
+      <div class="absolute top-0 left-0 right-0 -z-10 h-20 bg-gradient-to-b from-pink-200 rounded-t-2xl"></div>
+      <img src="web yg.png" alt="Project Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <a href="https://sello2010.github.io/website-yg/"><h2 class="text-xl font-semibold text-gray-700">Web YG Entertaiment</h2></a>
+      </div>
+    </div>
+  
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:bg-pink-100 relative">
+      <div class="absolute top-0 left-0 right-0 -z-10 h-20 bg-gradient-to-b from-pink-200 rounded-t-2xl"></div>
+      <img src="web travel.png" alt="Project Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <a href="https://sello2010.github.io/hospital/"><h2 class="text-xl font-semibold text-gray-700">Web Travel</h2></a>
+      </div>
+    </div>
+  
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:bg-pink-100 relative">
+      <div class="absolute top-0 left-0 right-0 -z-10 h-20 bg-gradient-to-b from-pink-200 rounded-t-2xl"></div>
+      <img src="web shop.png" alt="Project Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <a href="https://sello2010.github.io/wb-sp/"><h2 class="text-xl font-semibold text-gray-700">Web Shopping</h2></a>
+      </div>
+    </div>
+  
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:bg-pink-100 relative">
+      <div class="absolute top-0 left-0 right-0 -z-10 h-20 bg-gradient-to-b from-pink-200 rounded-t-2xl"></div>
+      <img src="web rs.png" alt="Project Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <a href="https://sello2010.github.io/tailwind-rumahsakit/"> <h2 class="text-xl font-semibold text-gray-700">Web RS</h2></a>
+      </div>
+    </div>
+  
+    <div class="bg-white rounded-2xl shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:bg-pink-100 relative">
+      <div class="absolute top-0 left-0 right-0 -z-10 h-20 bg-gradient-to-b from-pink-200 rounded-t-2xl"></div>
+      <img src="wb cafe.png" alt="Project Image" class="w-full h-48 object-cover">
+      <div class="p-4">
+        <a href="https://sello2010.github.io/tailwind-cafe/"> <h2 class="text-xl font-semibold text-gray-700">Web Cafe</h2></a>
+      </div>
+    </div>
+  </div>
+</section>
+  
+  
+
+<!-- Contact Me Section (Dipisah sendiri) -->
+ <br id="contact">
+<section class="bg-pink-50 pt-16 pb-4 px-4">
+  <div class="max-w-lg mx-auto bg-white rounded-2xl shadow-lg p-8 border border-pink-100">
+    <h2 class="text-3xl font-semibold text-gray-800 mb-6 text-center">Contact Me👩🏼</h2>
+    <form action="#" method="POST" class="space-y-4">
+      <div>
+        <label for="name" class="block text-pink-500 font-medium mb-1">Name</label>
+        <input type="text" id="name" name="name" placeholder="Your Name"
+          class="w-full px-4 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-pink-300 bg-pink-50 text-pink-700 placeholder-pink-300">
+      </div>
+      <div>
+        <label for="number" class="block text-pink-500 font-medium mb-1">Number</label>
+        <input type="number" id="number" name="number" placeholder="Your Number"
+          class="w-full px-4 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-pink-300 bg-pink-50 text-pink-700 placeholder-pink-300">
+      </div>
+      <div>
+        <label for="email" class="block text-pink-500 font-medium mb-1">Email</label>
+        <textarea id="email" name="email" rows="4" placeholder="your@email.com"
+          class="w-full px-4 py-2 border border-pink-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-300 focus:border-pink-300 bg-pink-50 text-pink-700 placeholder-pink-300"></textarea>
+      </div>
+      <button type="submit"
+        class="w-full bg-pink-400 text-white font-semibold py-2 px-4 rounded-lg hover:bg-pink-500 transition duration-200 shadow-md">
+        Send Message
+      </button>
+    </form>
+  </div>
+</section>
+
+<!-- Footer Section -->
+<footer class="text-pink-600 text-center py-4  border-t border-pink-200 ">
+  <p class="text-sm">&copy; 2025 Sellomitha Rahadi. All rights reserved.</p>
+</footer>
+
+
+  
+</html>  
+</body>
